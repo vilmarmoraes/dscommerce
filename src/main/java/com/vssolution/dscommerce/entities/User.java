@@ -28,7 +28,7 @@ public class User implements Serializable {
 	private String email;
 	
 	private String phone;
-	private LocalDate bithDate;
+	private LocalDate birthDate;
 	private String password;
 	
 	@OneToMany(mappedBy = "client")
@@ -39,12 +39,12 @@ public class User implements Serializable {
 	}
 
 
-	public User(Long id, String name, String email, String phone, LocalDate bithDate, String password) {
+	public User(Long id, String name, String email, String phone, LocalDate birthDate, String password) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
-		this.bithDate = bithDate;
+		this.birthDate = birthDate;
 		this.password = password;
 	}
 
@@ -89,13 +89,13 @@ public class User implements Serializable {
 	}
 
 
-	public LocalDate getBithDate() {
-		return bithDate;
+	public LocalDate getBirthDate() {
+		return birthDate;
 	}
 
 
-	public void setBithDate(LocalDate bithDate) {
-		this.bithDate = bithDate;
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
 	}
 
 
