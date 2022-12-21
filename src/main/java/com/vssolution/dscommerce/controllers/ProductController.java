@@ -1,14 +1,14 @@
 package com.vssolution.dscommerce.controllers;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vssolution.dscommerce.entities.Product;
-import com.vssolution.dscommerce.repositories.ProductRepository;
+import com.vssolution.dscommerce.dto.ProductDTO;
+import com.vssolution.dscommerce.services.ProductService;
 
 @RestController
 @RequestMapping(value = "/products")
@@ -18,13 +18,12 @@ public class ProductController {
 	 * @GetMapping public String teste() { return "Olá mundo!"; }
 	 */
 	@Autowired
-	private ProductRepository repository;
+	private ProductService service;
 	
-	@GetMapping
-	public String teste() {
-		Optional<Product> result =  repository.findById(1L);
-		Product product = result.get();
-		return product.getName();
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<ProductDTO> findById(@PathVariable Long id) {
+		ProductDTO  dto  = service.findById(id);
+		return ResponseEntity.ok().body(dto);
 	}
 	
 		
