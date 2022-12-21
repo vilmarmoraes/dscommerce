@@ -25,6 +25,8 @@ public class ProductDTO implements Serializable {
 		this.imgUrl = imgUrl;
 	}
 
+	//alternativa, podemos usar a biblioteca ModelMapper 
+	//para copiar entidades para DTO
 	public ProductDTO(Product entity) {
 		id = entity.getId();
 		name = entity.getName();
